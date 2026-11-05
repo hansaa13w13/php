@@ -242,7 +242,10 @@ def onefile_filter_games(games: dict) -> list:
 
 # --- WEBSOCKET İSTEMCİSİ (API) ---
 async def fetch_swarm_data():
-    headers = {"Origin": ONEFILE_DEFAULT_ORIGIN}
+    headers = {
+        "Origin": ONEFILE_DEFAULT_ORIGIN,
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+    }
     try:
         async with websockets.connect(ONEFILE_DEFAULT_WS_URL, extra_headers=headers) as ws:
             # 1. Oturum İsteği
